@@ -9,12 +9,9 @@ import IconBar from '../../components/shared/IconBar';
 
 const BottomTab = createMaterialBottomTabNavigator();
 
-const navSettings = {
-    headerShown: false,
-    animationEnabled: false,
-}
 const defaultNavOptions = {
     headerShown: false,
+    // only for now - headerShown: false
     animationEnabled: false,
     headerStyle: {
         backgroundColor: AppColors.Black,
@@ -38,7 +35,7 @@ const MainStackNavigator = createStackNavigator();
 const MainNavigator = () => {
   return (
     <MainStackNavigator.Navigator
-      screenOptions={navSettings}
+      screenOptions={defaultNavOptions}
     >
       <MainStackNavigator.Screen
         name="MainScreen"
@@ -50,8 +47,7 @@ const MainNavigator = () => {
 
 const SettingsStackNavigator = createStackNavigator();
 
-
-const INITIAL_ROUTE_NAME = "Main";
+const INITIAL_ROUTE_NAME = "MainNavigator";
 
 export default function BottomTabNavigator() {
   //const language = useSelector(state => state.app.language);
@@ -62,16 +58,18 @@ export default function BottomTabNavigator() {
       inactiveColor={AppColors.Gray}
       activeColor={AppColors.White}
       shifting={false}
-      initialRouteName={INITIAL_ROUTE_NAME}     
+      //initialRouteName={INITIAL_ROUTE_NAME}     
     >
       <BottomTab.Screen
         name="Main"
         component={MainNavigator}
         options={{
           title: "Main",
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <IconBar
               color={AppColors.Gray}
+              focusColor={AppColors.White}
+              focused={focused}
               name={Platform.OS === "android" ? "md-list" : "ios-list"}
             />
           ),

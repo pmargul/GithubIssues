@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar, Alert } from 'react-native';
+import { StatusBar } from 'react-native';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import BottomTabNavigator from './BottomTabNavigator';
 import AppColors from '../AppColors';

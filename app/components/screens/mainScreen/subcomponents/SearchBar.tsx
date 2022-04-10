@@ -8,8 +8,13 @@ import {
 } from 'react-native';
 import AppColors from '../../../../system/AppColors';
 import AppStyles from '../../../../system/AppStyles';
+import { useSelector } from 'react-redux';
+import { rootReduccer, RootState } from '../../../../system/redux/reducers/Index';
+import Translations from '../../../../system/Translations';
+import { Languages } from '../../../../models/Constants';
 
 function SearchBar(props: any) {
+  const lang = useSelector((state: RootState) => state.settings.language);
   useEffect(() => {}, [props]);
 
   function onInputValueChange(e: string) {
@@ -20,7 +25,7 @@ function SearchBar(props: any) {
     <View style={styles.container}>
       <View style={styles.searchInputSection}>
         <TextInput
-          placeholder="Wyszukaj..."
+          placeholder={Translations.search[lang]}
           placeholderTextColor={AppColors.White}
           style={styles.textInput}
           value={props.searchInput}

@@ -1,17 +1,20 @@
-import * as React from 'react';
-import AppColors from '../../system/AppColors';
+import React, { useEffect, useState } from "react";
 import Icon from 'react-native-ionicons';
-import {View} from 'react-native';
+import AppColors from "../../system/AppColors";
 
 export default function IconBar(props: any) {
-  const focusColorValue = props.focusColor ? props.focusColor : AppColors.Black;
-  const colorValue = props.color ? props.color : AppColors.Black;
+  const [colorValue, setColorValue] = useState(AppColors.White);
+
+  useEffect(()=>{
+      const renderColorValue = props.focused ? props.color : props.focusColor;
+      setColorValue(renderColorValue);
+  })
 
   return (
   <Icon
     name={props.name}
     size={30} 
-    color={AppColors.White}
+    color={colorValue}
   />
   );
 }
