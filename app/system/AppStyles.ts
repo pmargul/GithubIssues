@@ -8,5 +8,10 @@ export default {
             fontSize: 14,
             color: AppColors.White,
         }, 
+        standartBlack:{
+            fontFamily: "sans-serif",
+            fontSize: 14,
+            color: AppColors.White,
+        }, 
     }),
 }
