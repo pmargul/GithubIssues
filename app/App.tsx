@@ -1,17 +1,19 @@
 import React from 'react';
 import {
-  SafeAreaView,
-  StatusBar,
   StyleSheet,
   useColorScheme,
-  View,
 } from 'react-native';
 
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import MainScreen from './components/screens/mainScreen/MainScreen';
 import AppColors from './system/AppColors';
+import MainNavigator from './system/navigation/MainNavigator';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs([
+  "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
+]);
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,14 +21,14 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
+/*<SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <View style={styles.appContainer}>
-        <MainScreen/>
+        <MainNavigator/>
       </View>
-    </SafeAreaView>
+  </SafeAreaView>*/
+  return (
+    <MainNavigator/>   
   );
 };
 
