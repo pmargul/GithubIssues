@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { View } from 'react-native';
-import SearchBar from './Subcomponents/SearchBar';
+import SearchBar from './subcomponents/SearchBar';
 
 function MainScreen(){
     const [searchInput, updateSearchInput] = useState<string>("");

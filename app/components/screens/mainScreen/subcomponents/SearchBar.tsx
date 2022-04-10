@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import AppColors from '../../../../System/AppColors';
+import AppColors from '../../../../system/AppColors';
+import AppStyles from '../../../../system/AppStyles';
 
 function SearchBar(props: any) {
   useEffect(() => {}, [props]);
@@ -17,7 +18,7 @@ function SearchBar(props: any) {
 
   return (
     <View style={styles.container}>
-      <View style={{width: '70%'}}>
+      <View style={styles.searchInputSection}>
         <TextInput
           placeholder="Wyszukaj..."
           placeholderTextColor={AppColors.White}
@@ -25,8 +26,9 @@ function SearchBar(props: any) {
           value={props.searchInput}
           onChangeText={onInputValueChange}
           numberOfLines={1}></TextInput>
+          {/*TODO icon*/}
       </View>
-      <TouchableOpacity style={styles.filter}>
+      <TouchableOpacity style={styles.filterSection}>
         <Text style={{color: AppColors.White, textAlign: "center" ,textAlignVertical: "center"}}>{'Filtruj'}</Text>
       </TouchableOpacity>
     </View>
@@ -35,13 +37,12 @@ function SearchBar(props: any) {
 
 const styles = StyleSheet.create({
   textInput: {
+    ...AppStyles.fonts.standartWhite,
     backgroundColor: AppColors.Black,
-    color: AppColors.White,
     textAlignVertical: 'center',
-    fontSize: 14,
     padding: 4,
   },
-  filter: {
+  filterSection: {
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: AppColors.Orange,
@@ -49,8 +50,10 @@ const styles = StyleSheet.create({
     height: '100%',
     padding: 4
   },
+  searchInputSection: {
+    width: "70%"
+  },
   container: {
-    //width: "100%",
     justifyContent: 'space-around',
     flexDirection: 'row',
     alignItems: 'center',

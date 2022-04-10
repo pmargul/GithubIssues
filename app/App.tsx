@@ -10,8 +10,8 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import MainScreen from './Components/Screens/MainScreen/MainScreen';
-import AppColors from './System/AppColors';
+import MainScreen from './components/screens/mainScreen/MainScreen';
+import AppColors from './system/AppColors';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
