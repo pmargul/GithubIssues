@@ -6,10 +6,11 @@ import {
   Text
 } from "react-native";
 import AppColors from "../../../../system/AppColors";
-import GithubUser from "../../../../models/GithubUser";
+import { GithubUser, IGithubRecord } from "../../../../models/GithubDataModels";
 
 function GithubResults(props: any) {
-  const [data, initData] = useState<Array<GithubUser>>();
+  const [data, initData] = useState<Array<IGithubRecord>>();
+
   useEffect(() => {
     initData(props.data);
   }, [props]);
@@ -18,8 +19,8 @@ function GithubResults(props: any) {
     <View style={styles.container}>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={(itemData) => <View style={styles.listItem}><Text style={styles.text}>{itemData.item.login}</Text></View>}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={(itemData) => <View style={styles.listItem}><Text style={styles.text}>{itemData.item.id}</Text></View>}
       />
     </View>
   );
