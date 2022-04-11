@@ -67,10 +67,10 @@ export default function BottomTabNavigator() {
           title: "Main",
           tabBarIcon: ({ focused }) => (
             <IconBar
-              color={AppColors.Gray}
+              color={AppColors.White}
               focusColor={AppColors.White}
               focused={focused}
-              name={Platform.OS === "android" ? "md-list" : "ios-list"}
+              name={"list"}
             />
           ),
         }}

@@ -1,6 +1,10 @@
 export default { 
-    Black: '#000000',
-    Orange: '#E59722', 
-    White: '#FFFFFF',
-    Gray: '#ADADAD',
-  };
+  Silver: '#909497',
+  Gray: '#ADADAD',
+  Black: '#000000',
+  OrangeVeryLight: '#FFECCE90',
+  OrangeLight: '#FFECCE',
+  Orange: '#E59722', 
+  Transparent: 'rgba(0,0,0,0)',
+  White: '#FFFFFF',
+};

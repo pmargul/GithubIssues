@@ -2,16 +2,13 @@ import React, {useEffect} from 'react';
 import {
   StyleSheet,
   View,
-  TextInput,
-  Text,
-  TouchableOpacity,
+  TextInput
 } from 'react-native';
 import AppColors from '../../../../system/AppColors';
 import AppStyles from '../../../../system/AppStyles';
 import { useSelector } from 'react-redux';
-import { rootReduccer, RootState } from '../../../../system/redux/reducers/Index';
+import { RootState } from '../../../../system/redux/reducers/Index';
 import Translations from '../../../../system/Translations';
-import { Languages } from '../../../../models/Constants';
 
 function SearchBar(props: any) {
   const lang = useSelector((state: RootState) => state.settings.language);
@@ -33,9 +30,6 @@ function SearchBar(props: any) {
           numberOfLines={1}></TextInput>
           {/*TODO icon*/}
       </View>
-      <TouchableOpacity style={styles.filterSection}>
-        <Text style={{color: AppColors.White, textAlign: "center" ,textAlignVertical: "center"}}>{'Filtruj'}</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -43,7 +37,7 @@ function SearchBar(props: any) {
 const styles = StyleSheet.create({
   textInput: {
     ...AppStyles.fonts.standartWhite,
-    backgroundColor: AppColors.Black,
+    backgroundColor: AppColors.Orange,
     textAlignVertical: 'center',
     padding: 4,
   },
@@ -56,7 +50,7 @@ const styles = StyleSheet.create({
     padding: 4
   },
   searchInputSection: {
-    width: "70%"
+    width: "100%"
   },
   container: {
     justifyContent: 'space-around',

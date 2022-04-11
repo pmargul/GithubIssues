@@ -6,14 +6,14 @@ export default function IconBar(props: any) {
   const [colorValue, setColorValue] = useState(AppColors.White);
 
   useEffect(()=>{
-      const renderColorValue = props.focused ? props.color : props.focusColor;
+      const renderColorValue = props.focused ? props.focusColor : props.color;
       setColorValue(renderColorValue);
   })
 
   return (
   <Icon
     name={props.name}
-    size={30} 
+    size={props.size ? props.size : 20} 
     color={colorValue}
   />
   );
