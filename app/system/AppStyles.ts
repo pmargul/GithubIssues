@@ -34,7 +34,17 @@ export default {
         labelBlack: {
             fontFamily: "sans-serif",
             fontSize: 12,
-            color: AppColors.White,
+            color: AppColors.Black,
+        },
+    }),
+    header: StyleSheet.create({
+        headerContainer: {
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: "100%",
+            paddingHorizontal: 20,
+            backgroundColor: AppColors.Orange
         },
     }),
     body: StyleSheet.create({
@@ -68,7 +78,6 @@ export default {
             borderColor: AppColors.Orange,
             borderWidth: 5,
             borderRadius: 12,
-            flex: 1,
             padding: 5,
             marginVertical: 3
         },

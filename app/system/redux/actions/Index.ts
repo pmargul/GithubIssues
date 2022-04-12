@@ -1,6 +1,6 @@
-import { Languages } from "../../../models/Constants";
+import { Languages, SearchSettings } from "../../../models/Constants";
 
-export const setLanguage = (lang: Languages) => async (dispatch: (arg0: { type: string; payload: { language: Languages; }; }) => void) => {
+export const setAppLanguage = (lang: Languages) => async (dispatch: (arg0: { type: string; payload: { language: Languages; }; }) => void) => {
     dispatch({
       type: "SET_APP_LANG",
       payload: {
@@ -9,20 +9,11 @@ export const setLanguage = (lang: Languages) => async (dispatch: (arg0: { type: 
     });
 };
 
-export const setShowOnlyGithubUsers = (showOnlyGithubUsers: boolean) => async (dispatch: (arg0: { type: string; payload: { showOnlyGithubUsers: boolean; }; }) => void) => {
+export const setGithubDataSearchSettings = (searchSettings: SearchSettings) => async (dispatch: (arg0: { type: string; payload: { searchSettings: SearchSettings; }; }) => void) => {
     dispatch({
-      type: "SET_SHOW_ONlY_GITHUB_USERS_STATE",
+      type: "SET_SEARCH_SETTINGS",
       payload: {
-        showOnlyGithubUsers: showOnlyGithubUsers,
-      },
-    });
-};
-
-export const setShowOnlyGithubRepos = (showOnlyGithubRepos: boolean) => async (dispatch: (arg0: { type: string; payload: { showOnlyGithubRepos: boolean; }; }) => void) => {
-    dispatch({
-      type: "SET_SHOW_ONlY_GITHUB_REPOS_STATE",
-      payload: {
-        showOnlyGithubRepos: showOnlyGithubRepos,
+        searchSettings: searchSettings,
       },
     });
 };

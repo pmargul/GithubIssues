@@ -1,27 +1,21 @@
-import { Languages } from "../../../models/Constants";
+import { Languages, SearchSettings } from "../../../models/Constants";
 
-const initialState: {language: Languages, showOnlyGithubUsers : boolean, showOnlyGithubRepos: boolean } = {
+const initialState: {language: Languages, searchSettings: SearchSettings } = {
     language: Languages.polish,
-    showOnlyGithubUsers: false,
-    showOnlyGithubRepos: false,
+    searchSettings: SearchSettings.all,
 };
 
-const SettingsReducer = (state = initialState, action: { type: any; payload: { language: Languages; showOnlyGithubUsers: boolean, showOnlyGithubRepos: boolean; } }) => {
+const SettingsReducer = (state = initialState, action: { type: any; payload: { language: Languages; searchSettings: SearchSettings} }) => {
     switch (action.type) {
         case "SET_APP_LANG":
             return {
                 ...state,
                 language: action.payload.language,
             };
-        case "SET_SHOW_ONlY_GITHUB_USERS_STATE":
+        case "SET_SEARCH_SETTINGS":
             return {
                 ...state,
-                showOnlyGithubUsers: action.payload.showOnlyGithubUsers,
-            };
-        case "SET_SHOW_ONlY_GITHUB_REPOS_STATE":
-            return {
-                ...state,
-                showOnlyGithubRepos: action.payload.showOnlyGithubRepos,
+                searchSettings: action.payload.searchSettings,
             };
         default:
             return state;

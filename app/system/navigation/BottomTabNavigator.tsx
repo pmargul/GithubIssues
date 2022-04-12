@@ -6,6 +6,7 @@ import AppColors from '../AppColors';
 import MainScreen from '../../components/screens/mainScreen/MainScreen';
 import IconBar from '../../components/shared/IconBar';
 import UserDetailsScreen from '../../components/screens/userDetailsScreen/UserDetailsScreen';
+import SettingsScreen from '../../components/screens/settingsScreen/SettingsScreen';
 
 
 const BottomTab = createMaterialBottomTabNavigator();
@@ -51,6 +52,18 @@ const MainNavigator = () => {
 };
 
 const SettingsStackNavigator = createStackNavigator();
+const SettingsNavigator = () => {
+  return (
+    <SettingsStackNavigator.Navigator
+      screenOptions={defaultNavOptions}
+    >
+      <SettingsStackNavigator.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+      />
+    </SettingsStackNavigator.Navigator>
+  );
+};
 
 const INITIAL_ROUTE_NAME = "MainNavigator";
 
@@ -72,10 +85,25 @@ export default function BottomTabNavigator() {
           title: "Main",
           tabBarIcon: ({ focused }) => (
             <IconBar
-              color={AppColors.White}
+              color={AppColors.Gray}
               focusColor={AppColors.White}
               focused={focused}
-              name={"list"}
+              name={"format-list-bulleted"}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={SettingsNavigator}
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ focused }) => (
+            <IconBar
+              color={AppColors.Gray}
+              focusColor={AppColors.White}
+              focused={focused}
+              name={"application-settings"}
             />
           ),
         }}

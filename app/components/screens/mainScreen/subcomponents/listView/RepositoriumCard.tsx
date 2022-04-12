@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, View, Text, Platform, Image} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 import AppColors from '../../../../../system/AppColors';
 import AppStyles from '../../../../../system/AppStyles';
 import { GithubRepositorium } from '../../../../../models/GithubDataModels';
@@ -23,7 +23,7 @@ function RepositoriumCard(props: {item: GithubRepositorium}) {
                 <IconBar
                     color={AppColors.White}
                     size={30}
-                    name={"logo-github"}
+                    name={"source-repository"}
                 />
               </View>
             </View>

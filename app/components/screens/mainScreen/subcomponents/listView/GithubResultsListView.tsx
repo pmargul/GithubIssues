@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, FlatList, Text, Image} from 'react-native';
+import {StyleSheet, View, FlatList, Text} from 'react-native';
 import {
   GithubUser,
   IGithubRecord,
@@ -10,9 +10,13 @@ import RepositoriumCard from './RepositoriumCard';
 import AppStyles from '../../../../../system/AppStyles';
 import IconBar from '../../../../shared/IconBar';
 import AppColors from '../../../../../system/AppColors';
+import Translations from '../../../../../system/Translations';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../../../../system/redux/reducers/Index';
 
 function GithubResultsListView(props: any) {
   const [data, initData] = useState<Array<IGithubRecord>>();
+  const lang = useSelector((state: RootState) => state.settings.language);
 
   useEffect(() => {
     initData(props.data);
@@ -22,15 +26,15 @@ function GithubResultsListView(props: any) {
     <View style={styles.listContainer}>
       {props.errorOccured ? (
         <View style={styles.errorInfo}>
-          <IconBar color={AppColors.Black} size={50} name={'list'} />
+          <IconBar color={AppColors.Black} size={50} name={'alert'} />
           <Text style={{...AppStyles.fonts.standartBold, marginTop: 10}}>
-            {'Wystąpił nieoczekiwany błąd. Nie udało się pobrać danych...'}
+            {Translations.errorOccured[lang]}
           </Text>
         </View>
       ) : data?.length === 0 ? (
         <View style={styles.errorInfo}>
           <Text style={{...AppStyles.fonts.standartBold, marginTop: 10}}>
-            {'Lista danych jest pusta'}
+            {Translations.emptyList[lang]}
           </Text>
         </View>
       ) : (

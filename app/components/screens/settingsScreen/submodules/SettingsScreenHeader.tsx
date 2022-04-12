@@ -13,28 +13,23 @@ import { RootState } from '../../../../system/redux/reducers/Index';
 import Translations from '../../../../system/Translations';
 import IconBar from '../../../shared/IconBar';
 
-function UserDetailsHeader(props: {navigation: any, title: string}) {
+function SettingsScreenHeader(props: any) {
   const lang = useSelector((state: RootState) => state.settings.language);
   useEffect(() => {}, [props]);
 
   return (
     <View style={AppStyles.header.headerContainer}>
-        <TouchableOpacity style={styles.imageContainer} onPress={()=> props.navigation.goBack()}>
+        <View style={styles.imageContainer}>
           <IconBar
               color={AppColors.White}
-              size={30}
-              name={"arrow-left-bold"}
+              size={20}
+              name={"application-settings"}
             />
-            <View style={{marginHorizontal: 5}}/>
-            <Text
-              style={AppStyles.fonts.headerTitle}
-            >{Translations.goBack[lang]}    
-          </Text>
-        </TouchableOpacity>
+        </View>
         <View style={styles.titleContainer}> 
           <Text
             style={AppStyles.fonts.headerTitle}
-          >{props.title}    
+          >{Translations.settingsScreen[lang]}    
           </Text>
         </View>
       </View>
@@ -43,17 +38,15 @@ function UserDetailsHeader(props: {navigation: any, title: string}) {
 
 const styles = StyleSheet.create({
   imageContainer: {
-    width: "40%",
+    width: "20%",
     alignItems: 'center',
-    justifyContent: "center",
-    flexDirection: "row"
+    padding: 5,
   },
   titleContainer: {
-    width: "60%",
-    alignItems: 'flex-end',
+    width: "80%",
+    alignItems: 'center',
     padding: 5,
-    paddingEnd: 20
   },
 });
 
-export default UserDetailsHeader;
+export default SettingsScreenHeader;

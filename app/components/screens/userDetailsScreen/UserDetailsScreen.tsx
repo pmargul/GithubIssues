@@ -25,7 +25,6 @@ function UserDetailsScreen(props: any) {
     }
     else {
       const followers: Array<any> = await getApi(item.followers_url!);  
-      console.log(followers)
       setFollowersValue(followers.length.toString());
     }
     return;
@@ -33,18 +32,18 @@ function UserDetailsScreen(props: any) {
 
   useEffect(()=>{
     fetchUserDetails().catch(()=>{
-      setFollowersValue("Brak informacji");
+      setFollowersValue(Translations.noInfo[lang]);
     })
   },[])
 
   return (
     <View style={AppStyles.body.bodyContainer}>
-      <UserDetailsHeader navigation={navigation}/>
+      <UserDetailsHeader navigation={navigation} title={item.login!}/>
       <View style={{ ...styles.container}}>
         <View style={AppStyles.body.cardContainer}>
           <Image
               style={{...AppStyles.body.imageShape}}
-              source={{uri: 'https://avatars.githubusercontent.com/u/1?v=4'}}
+              source={{uri: item.avatar_url}}
           />  
         </View>
       </View>

@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { View } from 'react-native';
-import SearchBar from './subcomponents/SearchBar';
+import MainScreenHeader from './subcomponents/MainScreenHeader';
 import {getApi} from '../../../system/ApiRequests';
 import AppLoader from '../../shared/AppLoader';
 import AppColors from '../../../system/AppColors';
 import AppStyles from '../../../system/AppStyles';
 import { GithubUser, GithubRepositorium, IGithubRecord } from '../../../models/GithubDataModels';
 import GithubResultsListView from './subcomponents/listView/GithubResultsListView';
+import { GET_API_GITHUB_USERS_URL, GET_API_GITHUB_REPOS_URL } from '../../../models/Constants';
 
 function MainScreen(props: any) {
   const [searchInput, updateSearchInput] = useState<string>('');
@@ -30,13 +31,10 @@ function MainScreen(props: any) {
   }, []);
 
   async function fetchGithubData():  Promise<Array<IGithubRecord>>{
-    const get_users_url = "https://api.github.com/users";
-    const get_repos_url = "https://api.github.com/repositories";
+    const users: Array<GithubUser> = await getApi(GET_API_GITHUB_USERS_URL);
+    const users_array = users.map(u => new GithubUser(u.id, u.login, u.avatar_url, u.html_url, u.followers_url));
 
-    const users: Array<GithubUser> = await getApi(get_users_url);
-    const users_array = users.map(u => new GithubUser(u.id, u.login, u.avatar_url, u.followers_url));
-
-    const repositories: Array<GithubRepositorium> = await getApi(get_repos_url);
+    const repositories: Array<GithubRepositorium> = await getApi(GET_API_GITHUB_REPOS_URL);
     const repos_array = repositories.map(r => new GithubRepositorium(r.id, r.name, r.full_name, r.description, r.owner));
 
     const final_result: Array<IGithubRecord> = new Array<IGithubRecord>();
@@ -62,7 +60,7 @@ function MainScreen(props: any) {
   return (
     <>
       <View style={AppStyles.body.bodyContainer}>
-        <SearchBar
+        <MainScreenHeader
           searchInput={searchInput}
           updateSearchInput={updateSearchInput}
         />

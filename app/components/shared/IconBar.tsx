@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Icon from 'react-native-ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppColors from "../../system/AppColors";
 
 export default function IconBar(props: any) {
@@ -11,7 +11,7 @@ export default function IconBar(props: any) {
   })
 
   return (
-  <Icon
+  <MaterialCommunityIcons
     name={props.name}
     size={props.size ? props.size : 20} 
     color={colorValue}

@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../../system/redux/reducers/Index';
 import Translations from '../../../../system/Translations';
 
-function SearchBar(props: any) {
+function MainScreenHeader(props: any) {
   const lang = useSelector((state: RootState) => state.settings.language);
   useEffect(() => {}, [props]);
 
@@ -19,7 +19,7 @@ function SearchBar(props: any) {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={AppStyles.header.headerContainer}>
       <View style={styles.searchInputSection}>
         <TextInput
           placeholder={Translations.search[lang]}
@@ -36,7 +36,7 @@ function SearchBar(props: any) {
 
 const styles = StyleSheet.create({
   textInput: {
-    ...AppStyles.fonts.standartWhite,
+    ...AppStyles.fonts.headerTitle,
     backgroundColor: AppColors.Orange,
     textAlignVertical: 'center',
     padding: 4,
@@ -52,11 +52,6 @@ const styles = StyleSheet.create({
   searchInputSection: {
     width: "100%"
   },
-  container: {
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
 });
 
-export default SearchBar;
+export default MainScreenHeader;
