@@ -8,9 +8,11 @@ import AppStyles from '../../../system/AppStyles';
 import { GithubUser, GithubRepositorium, IGithubRecord } from '../../../models/GithubDataModels';
 import GithubResultsListView from './subcomponents/listView/GithubResultsListView';
 
-function MainScreen() {
+function MainScreen(props: any) {
   const [searchInput, updateSearchInput] = useState<string>('');
-  const [isFetching, updateFetchingState]= useState<boolean>(true);
+  const [isFetching, updateFetchingState]= useState<boolean>(false);
+  const [errorOccured, raiseError]= useState<boolean>(false);
+
   const [githubData, setGithubData] = useState<Array<IGithubRecord>>([]);
 
   useEffect(() => {
@@ -20,10 +22,11 @@ function MainScreen() {
       })
       setGithubData(sortedArray);
     }).catch(()=>{
-      // Raise an error
+      raiseError(true)
     }).finally(()=>{
       updateFetchingState(false);
     })
+
   }, []);
 
   async function fetchGithubData():  Promise<Array<IGithubRecord>>{
@@ -31,7 +34,7 @@ function MainScreen() {
     const get_repos_url = "https://api.github.com/repositories";
 
     const users: Array<GithubUser> = await getApi(get_users_url);
-    const users_array = users.map(u => new GithubUser(u.id, u.login, u.avatar_url, u.repos_url));
+    const users_array = users.map(u => new GithubUser(u.id, u.login, u.avatar_url, u.followers_url));
 
     const repositories: Array<GithubRepositorium> = await getApi(get_repos_url);
     const repos_array = repositories.map(r => new GithubRepositorium(r.id, r.name, r.full_name, r.description, r.owner));
@@ -71,7 +74,7 @@ function MainScreen() {
             textStyle={AppStyles.fonts.standartBlack}
           />
         ) : (
-          <GithubResultsListView data={filteredArray}/>
+          <GithubResultsListView data={filteredArray} navigation={props.navigation} errorOccured={errorOccured}/>
         )}
       </View>
     </>

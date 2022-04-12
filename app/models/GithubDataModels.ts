@@ -6,13 +6,13 @@ export class GithubUser implements IGithubRecord {
     id!: number;
     login: string | undefined;
     avatar_url: string | undefined;
-    repos_url: string | undefined;
+    followers_url: string | undefined;
 
-    constructor(id: number, login: string | undefined, avatar_url: string | undefined, repos_url: string | undefined){
+    constructor(id: number, login: string | undefined, avatar_url: string | undefined, followers_url: string | undefined){
         this.id = id;
         this.login = login;
         this.avatar_url = avatar_url;
-        this.repos_url = repos_url;    
+        this.followers_url = followers_url;    
     }
 };
 

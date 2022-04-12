@@ -5,6 +5,7 @@ import { Platform, StatusBar } from "react-native";
 import AppColors from '../AppColors';
 import MainScreen from '../../components/screens/mainScreen/MainScreen';
 import IconBar from '../../components/shared/IconBar';
+import UserDetailsScreen from '../../components/screens/userDetailsScreen/UserDetailsScreen';
 
 
 const BottomTab = createMaterialBottomTabNavigator();
@@ -40,6 +41,10 @@ const MainNavigator = () => {
       <MainStackNavigator.Screen
         name="MainScreen"
         component={MainScreen}
+      />
+      <MainStackNavigator.Screen
+        name="UserDetailsScreen"
+        component={UserDetailsScreen}
       />
     </MainStackNavigator.Navigator>
   );

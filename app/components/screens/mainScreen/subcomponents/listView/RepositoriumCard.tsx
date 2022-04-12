@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Text, Platform} from 'react-native';
+import {StyleSheet, View, Text, Platform, Image} from 'react-native';
 import AppColors from '../../../../../system/AppColors';
 import AppStyles from '../../../../../system/AppStyles';
 import { GithubRepositorium } from '../../../../../models/GithubDataModels';

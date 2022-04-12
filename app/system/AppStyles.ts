@@ -3,6 +3,12 @@ import { StyleSheet } from 'react-native';
 
 export default {
     fonts: StyleSheet.create({
+        headerTitle: {
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            fontSize: 16,
+            color: AppColors.White,
+        },
         standartWhite: {
             fontFamily: "sans-serif",
             fontSize: 14,
@@ -11,7 +17,13 @@ export default {
         standartBlack: {
             fontFamily: "sans-serif",
             fontSize: 14,
-            color: AppColors.White,
+            color: AppColors.Black,
+        },
+        standartBold: {
+            fontFamily: "Times New Roman",
+            fontWeight: "bold",
+            fontSize: 18,
+            color: AppColors.Black,
         },
         labelWhite: {
             fontFamily: "sans-serif",
@@ -46,7 +58,7 @@ export default {
             borderColor: AppColors.OrangeLight,
             backgroundColor: AppColors.OrangeLight,
             borderRadius: 12,
-            padding: 2         
+            padding: 2,        
         },
         cardBody: {
             flexDirection: 'column',
@@ -60,6 +72,14 @@ export default {
             padding: 5,
             marginVertical: 3
         },
+        imageShape: {
+            width: 150,
+            height: 150,
+            borderRadius: 150 / 2,
+            overflow: "hidden",
+            borderWidth: 5,
+            borderColor: AppColors.Black
+        }
     }),
 
 }

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Text, Platform} from 'react-native';
+import {StyleSheet, View, Text, Platform, TouchableOpacity} from 'react-native';
 import AppColors from '../../../../../system/AppColors';
 import AppStyles from '../../../../../system/AppStyles';
 import { GithubUser } from '../../../../../models/GithubDataModels';
@@ -8,11 +8,17 @@ import Translations from '../../../../../system/Translations';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../system/redux/reducers/Index';
 
-function UserCard(props: {item: GithubUser}) {
+function UserCard(props: {item: GithubUser, navigation: any}) {
   const lang = useSelector((state: RootState) => state.settings.language);
 
+  const navigation = props.navigation;  
+  
+  function navigateToUserDetails(): void {
+    navigation.navigate("UserDetailsScreen",{ item: props.item })
+  }
+
   return (
-    <View style={AppStyles.body.cardContainer}>
+    <TouchableOpacity style={AppStyles.body.cardContainer} onPress={navigateToUserDetails}>
         <View style={{flex: 1}}>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: "space-between"}}>          
               <View style={{...AppStyles.body.cardBody, flex: 0.75}}>
@@ -29,10 +35,10 @@ function UserCard(props: {item: GithubUser}) {
             </View>
             <View style={{...AppStyles.body.cardBody,flex: 1}}>    
               <Text style={{...AppStyles.fonts.labelWhite}}>{Translations.repos_url[lang]}</Text>     
-              <Text style={AppStyles.fonts.standartWhite}>{props.item.repos_url}</Text>
+              <Text style={AppStyles.fonts.standartWhite}>{props.item.avatar_url}</Text>
             </View>
         </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
