@@ -2,8 +2,6 @@ import React, {useEffect} from 'react';
 import {
   StyleSheet,
   View,
-  TextInput,
-  TouchableOpacity,
   Text
 } from 'react-native';
 import AppColors from '../../../../system/AppColors';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Platform, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import AppColors from '../AppColors';
 import MainScreen from '../../components/screens/mainScreen/MainScreen';
 import IconBar from '../../components/shared/IconBar';

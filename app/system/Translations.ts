@@ -7,6 +7,10 @@ export default  {
         "pl": "Login",
         "en": "Login"
     },
+    followersAmount: {
+        "pl": "Liczba subskrybentów",
+        "en": "Number of subscribers"
+    },
     name: {
         "pl": "Nazwa",
         "en": "Name"
@@ -14,6 +18,10 @@ export default  {
     description: {
         "pl": "Opis",
         "en": "Description"
+    },
+    refresh: {
+        "pl": "Odśwież",
+        "en": "Refresh"
     },
     details: {
         "pl": "Szczegóły",

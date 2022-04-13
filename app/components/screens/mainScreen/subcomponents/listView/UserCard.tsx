@@ -7,7 +7,6 @@ import IconBar from '../../../../shared/IconBar';
 import Translations from '../../../../../system/Translations';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../system/redux/reducers/Index';
-import Clipboard from '@react-native-clipboard/clipboard'
 
 function UserCard(props: {item: GithubUser, navigation: any}) {
   const lang = useSelector((state: RootState) => state.settings.language);
@@ -16,9 +15,7 @@ function UserCard(props: {item: GithubUser, navigation: any}) {
   function navigateToUserDetails(): void {
     navigation.navigate("UserDetailsScreen",{ item: props.item })
   }
-  function copyToClipboard(): void {
-    Clipboard.setString('hello world')
-  }
+
   return (
     <TouchableOpacity style={AppStyles.body.cardContainer} onPress={navigateToUserDetails}>
         <View style={{flex: 1}}>
@@ -35,10 +32,10 @@ function UserCard(props: {item: GithubUser, navigation: any}) {
                 />
               </View>
             </View>
-            <TouchableOpacity style={{...AppStyles.body.cardBody,flex: 1}} onPress={copyToClipboard}>    
+            <View style={{...AppStyles.body.cardBody,flex: 1}}>    
               <Text style={{...AppStyles.fonts.labelWhite}}>{Translations.html_url[lang]}</Text>     
               <Text style={AppStyles.fonts.standartWhite}>{props.item.html_url}</Text>
-            </TouchableOpacity>
+            </View>
         </View>
     </TouchableOpacity>
   );

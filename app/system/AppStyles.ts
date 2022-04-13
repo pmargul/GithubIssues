@@ -86,7 +86,7 @@ export default {
             height: 150,
             borderRadius: 150 / 2,
             overflow: "hidden",
-            borderWidth: 5,
+            borderWidth: 2,
             borderColor: AppColors.Black
         }
     }),
