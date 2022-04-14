@@ -24,7 +24,7 @@ function UserCard(props: {item: GithubUser, navigation: any}) {
                 <Text style={{...AppStyles.fonts.labelWhite}}>{Translations.login[lang]}</Text>
                 <Text style={{...AppStyles.fonts.standartWhite}}>{props.item.login}</Text>
               </View>
-              <View style={{...AppStyles.body.cardBody, flex: 0.23, ...styles.imageContainer}}>
+              <View style={{...AppStyles.body.cardBody, flex: 0.24, ...styles.imageContainer}}>
                 <IconBar
                     color={AppColors.White}
                     size={30}
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 2
   },
-
 });
 
 export default UserCard;

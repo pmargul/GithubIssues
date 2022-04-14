@@ -18,14 +18,14 @@ export default function RadioGroup(props: {
         return (
           <View style={styles.option} key={el.value}>
             <Checkbox
-              color={AppColors.Black}
-              uncheckedColor={AppColors.White}
+              color={AppColors.Orange}
+              uncheckedColor={AppColors.Black}
               status={props.selectedValue === el.value ? 'checked' : 'unchecked'}
               onPress={() => {
                 handleSelectionChange(el.value);
               }}
             />
-            <Text style={AppStyles.fonts.standartWhite}>{el.label}</Text>
+            <Text style={AppStyles.fonts.boldOrange}>{el.label}</Text>
           </View>
         );
       })}

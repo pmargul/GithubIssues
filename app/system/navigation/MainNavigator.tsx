@@ -15,7 +15,7 @@ export default function MainNavigator() {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
-      background: AppColors.White    
+      background: AppColors.Background    
     },
   };
 
@@ -35,6 +35,6 @@ export default function MainNavigator() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppColors.White,
+    backgroundColor: AppColors.BlueLight,
   },
 });

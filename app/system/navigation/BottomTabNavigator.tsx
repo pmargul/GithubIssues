@@ -7,6 +7,9 @@ import MainScreen from '../../components/screens/mainScreen/MainScreen';
 import IconBar from '../../components/shared/IconBar';
 import UserDetailsScreen from '../../components/screens/userDetailsScreen/UserDetailsScreen';
 import SettingsScreen from '../../components/screens/settingsScreen/SettingsScreen';
+import Translations from '../Translations';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/reducers/Index';
 
 
 const BottomTab = createMaterialBottomTabNavigator();
@@ -65,24 +68,21 @@ const SettingsNavigator = () => {
   );
 };
 
-const INITIAL_ROUTE_NAME = "MainNavigator";
-
 export default function BottomTabNavigator() {
-  //const language = useSelector(state => state.app.language);
+  const lang = useSelector((state: RootState) => state.settings.language);
   
   return (
     <BottomTab.Navigator
-      barStyle={{ backgroundColor: AppColors.Black, paddingVertical: 3 }}
+      barStyle={{ backgroundColor: AppColors.Orange, paddingVertical: 3, marginTop: 20 }}
       inactiveColor={AppColors.Gray}
       activeColor={AppColors.White}
       shifting={false}
-      //initialRouteName={INITIAL_ROUTE_NAME}     
     >
       <BottomTab.Screen
         name="Main"
         component={MainNavigator}
         options={{
-          title: "Main",
+          title: Translations.githubRecords[lang],
           tabBarIcon: ({ focused }) => (
             <IconBar
               color={AppColors.Gray}
@@ -97,7 +97,7 @@ export default function BottomTabNavigator() {
         name="Settings"
         component={SettingsNavigator}
         options={{
-          title: "Settings",
+          title: Translations.settings[lang],
           tabBarIcon: ({ focused }) => (
             <IconBar
               color={AppColors.Gray}

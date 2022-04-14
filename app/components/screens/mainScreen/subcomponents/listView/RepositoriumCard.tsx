@@ -19,7 +19,7 @@ function RepositoriumCard(props: {item: GithubRepositorium}) {
                 <Text style={{...AppStyles.fonts.labelWhite}}>{Translations.name[lang]}</Text>
                 <Text style={{...AppStyles.fonts.standartWhite, fontWeight: "bold"}}>{props.item.full_name}</Text>
               </View>
-              <View style={{...AppStyles.body.cardBody, flex: 0.23, ...styles.imageContainer}}>
+              <View style={{...AppStyles.body.cardBody, flex: 0.24, ...styles.imageContainer}}>
                 <IconBar
                     color={AppColors.White}
                     size={30}

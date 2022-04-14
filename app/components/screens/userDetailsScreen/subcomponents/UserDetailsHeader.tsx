@@ -14,10 +14,9 @@ import IconBar from '../../../shared/IconBar';
 
 function UserDetailsHeader(props: {navigation: any, title: string}) {
   const lang = useSelector((state: RootState) => state.settings.language);
-  useEffect(() => {}, [props]);
 
   return (
-    <View style={AppStyles.header.headerContainer}>
+    <View style={{...AppStyles.header.headerContainer, paddingVertical: 10}}>
         <TouchableOpacity style={styles.imageContainer} onPress={()=> props.navigation.goBack()}>
           <IconBar
               color={AppColors.White}

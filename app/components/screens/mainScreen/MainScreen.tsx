@@ -65,7 +65,9 @@ function MainScreen(props: any) {
     let search_value = searchInput.toLowerCase();
     if(record instanceof GithubUser){
       let user_login =  (record as GithubUser).login?.toLowerCase();
-      return user_login?.includes(search_value);
+      let user_url =  (record as GithubUser).html_url?.toLowerCase();
+
+      return user_login?.includes(search_value) || user_url?.includes(search_value);
     }
       const repositorium = (record as GithubRepositorium);
       let repos_name = repositorium.name?.toLowerCase();

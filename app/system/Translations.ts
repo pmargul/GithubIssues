@@ -71,6 +71,14 @@ export default  {
         "pl": "Tylko repozytoria",
         "en": "Only repositories"
     },
+    polish: {
+        "pl": "Polski",
+        "en": "Polish"
+    },
+    english: {
+        "pl": "Angielski",
+        "en": "English"
+    },
     all: {
         "pl": "Wszystko",
         "en": "All"
@@ -82,5 +90,13 @@ export default  {
     settingsScreen: {
         "pl": "Ustawienia aplikacji w ramach sesji",
         "en": "Application settings within the session"
+    },
+    settings: {
+        "pl": "Ustawienia",
+        "en": "Settings"
+    },
+    githubRecords: {
+        "pl": "Rekordy Github",
+        "en": "Github records"
     },
 };

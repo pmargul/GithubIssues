@@ -14,6 +14,12 @@ export default {
             fontSize: 14,
             color: AppColors.White,
         },
+        boldOrange: {
+            fontFamily: "sans-serif",
+            fontWeight: "bold",
+            fontSize: 14,
+            color: AppColors.Orange,
+        },
         standartBlack: {
             fontFamily: "sans-serif",
             fontSize: 14,
@@ -53,8 +59,8 @@ export default {
             alignItems: "center"
         },
         cardContainer: {
-            marginLeft: 20,
-            marginRight: 20,
+            marginLeft: 10,
+            marginRight: 10,
             marginTop: 0,
             marginBottom: 15,
             shadowColor: AppColors.Transparent,
@@ -62,24 +68,19 @@ export default {
               width: 1,
               height: 1
             },
-            shadowRadius: 20,
+            shadowRadius: 0,
             shadowOpacity: 0.08,
-            borderWidth: 5,
-            borderColor: AppColors.OrangeLight,
-            backgroundColor: AppColors.OrangeLight,
-            borderRadius: 12,
-            padding: 2,        
+            borderColor: AppColors.OrangeVeryLight,
+            backgroundColor: AppColors.OrangeVeryLight,
+            borderRadius: 6,
+            padding: 3,        
         },
         cardBody: {
             flexDirection: 'column',
-            //alignItems: "center",
-            //justifyContent: 'center',
             backgroundColor: AppColors.Orange,
-            borderColor: AppColors.Orange,
-            borderWidth: 5,
-            borderRadius: 12,
-            padding: 5,
-            marginVertical: 3
+            borderRadius: 6,
+            padding: 10,
+            marginVertical: 1
         },
         imageShape: {
             width: 150,
@@ -87,7 +88,7 @@ export default {
             borderRadius: 150 / 2,
             overflow: "hidden",
             borderWidth: 2,
-            borderColor: AppColors.Black
+            borderColor: AppColors.White
         }
     }),
 

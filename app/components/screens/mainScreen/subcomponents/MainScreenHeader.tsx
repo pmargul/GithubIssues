@@ -15,7 +15,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function MainScreenHeader(props: any) {
   const lang = useSelector((state: RootState) => state.settings.language);
-  useEffect(() => {}, [props]);
 
   function onInputValueChange(e: string) {
     props.updateSearchInput(e);
@@ -50,9 +49,12 @@ function MainScreenHeader(props: any) {
 const styles = StyleSheet.create({
   textInput: {
     ...AppStyles.fonts.headerTitle,
-    backgroundColor: AppColors.Orange,
     textAlignVertical: 'center',
-    padding: 4,
+    paddingTop: 10,
+    maxWidth: "50%",
+    width: "50%",
+    flexDirection: "row",
+    alignItems: "center"
   },
   imageSection:{
     flexDirection: "row",

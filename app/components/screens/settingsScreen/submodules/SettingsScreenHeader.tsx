@@ -13,10 +13,9 @@ import IconBar from '../../../shared/IconBar';
 
 function SettingsScreenHeader(props: any) {
   const lang = useSelector((state: RootState) => state.settings.language);
-  useEffect(() => {}, [props]);
 
   return (
-    <View style={AppStyles.header.headerContainer}>
+    <View style={{...AppStyles.header.headerContainer, paddingVertical: 10}}>
         <View style={styles.imageContainer}>
           <IconBar
               color={AppColors.White}
@@ -36,12 +35,12 @@ function SettingsScreenHeader(props: any) {
 
 const styles = StyleSheet.create({
   imageContainer: {
-    width: "20%",
+    width: "10%",
     alignItems: 'center',
     padding: 5,
   },
   titleContainer: {
-    width: "80%",
+    width: "90%",
     alignItems: 'center',
     padding: 5,
   },

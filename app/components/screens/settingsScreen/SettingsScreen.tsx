@@ -8,6 +8,7 @@ import RadioGroup from '../../shared/RadioGroup';
 import { Languages, SearchSettings } from '../../../models/Constants';
 import { setAppLanguage, setGithubDataSearchSettings } from '../../../system/redux/actions/Index';
 import SettingsScreenHeader from './submodules/SettingsScreenHeader';
+import AppColors from '../../../system/AppColors';
 
 function SettingsScreen(props: any) {
   const lang = useSelector((state: RootState) => state.settings.language);
@@ -15,8 +16,8 @@ function SettingsScreen(props: any) {
   const dispatch = useDispatch();
 
   const langOptions = [
-    { value: Languages.polish, label: "Polski"},
-    { value: Languages.english, label: "Angielski"}
+    { value: Languages.polish, label: Translations.polish[lang]},
+    { value: Languages.english, label: Translations.english[lang]}
   ];
 
   const searchSettingsOptions = [
@@ -37,14 +38,14 @@ function SettingsScreen(props: any) {
       <>
       <SettingsScreenHeader/>
       <View style={{ ...styles.container}}>
-        <View style={{...AppStyles.body.cardContainer}}>
+        <View style={{...AppStyles.body.cardContainer, backgroundColor: AppColors.White}}>
           <Text style={styles.label}>{Translations.language[lang]}</Text>
-          <View style={AppStyles.body.cardBody}>
+          <View style={{...AppStyles.body.cardBody, backgroundColor: AppColors.White}}>
             <RadioGroup selectedValue={lang} options={langOptions} onChange={setLanguage}/>      
           </View>
           <View style={{marginVertical: 10}}/>
           <Text style={styles.label}>{Translations.searchSettings[lang]}</Text>
-          <View style={AppStyles.body.cardBody}>
+          <View style={{...AppStyles.body.cardBody, backgroundColor: AppColors.White}}>
             <RadioGroup selectedValue={searchOption} options={searchSettingsOptions} onChange={setSearchSettings}/>      
           </View>
         </View>
@@ -57,14 +58,13 @@ function SettingsScreen(props: any) {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    //alignItems: "center",
-    //justifyContent: "center",
-    paddingHorizontal: 20,
-    paddingVertical: 100,
+    paddingHorizontal: 10,
+    paddingVertical: 20,
   },
   label: {
     ...AppStyles.fonts.standartBold,
-    fontSize: 14
+    fontSize: 16,
+    paddingStart: 10
   }
 });
 

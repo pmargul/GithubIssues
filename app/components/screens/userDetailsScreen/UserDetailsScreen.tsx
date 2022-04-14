@@ -31,6 +31,7 @@ function UserDetailsScreen(props: any) {
   };
   
   function copyToClipboard(): void {
+    console.log(item.html_url)
     if(item.html_url)
       Clipboard.setString(item.html_url);
   }
@@ -57,18 +58,18 @@ function UserDetailsScreen(props: any) {
               source={{uri: item.avatar_url}}
           />  
       </View>
-      <View style={{ ...styles.container, width: "80%"}}>
-        <View style={{...AppStyles.body.cardContainer, width: "100%"}}>
+      <View style={{ ...styles.container, width: "100%"}}>
+        <View style={styles.cardContainer}>
           {renderDetailsSection(Translations.login[lang], item.login)}
           {renderDetailsSection(Translations.followersAmount[lang], followers)}
           <View style={styles.sectionContainer}/>
           <Text style={{...AppStyles.fonts.standartBold, fontSize: 15}}>{`${Translations.html_url[lang]}:`}</Text>
-          <TouchableOpacity style={{...AppStyles.body.cardBody, flexDirection: "row", justifyContent: "space-between", alignItems: "center"}} onPress={()=>{copyToClipboard}}>
+          <TouchableOpacity style={{...AppStyles.body.cardBody, flexDirection: "row", justifyContent: "space-between", alignItems: "center"}} onPress={copyToClipboard}>
             <Text style={AppStyles.fonts.standartWhite}>{item.html_url}</Text>
             <IconBar
               color={AppColors.White}
               size={24}
-              name={"clipboard"}
+              name={"content-cut"}
             />
           </TouchableOpacity>
         </View>
@@ -78,6 +79,9 @@ function UserDetailsScreen(props: any) {
 }
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    ...AppStyles.body.cardContainer, backgroundColor: AppColors.White ,width: "100%", borderRadius: 6, padding: 15
+  },
   container: {
     width: "100%",
     alignItems: "center",
@@ -95,6 +99,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginVertical: 5,
+    marginEnd: 10
   }
 });
 

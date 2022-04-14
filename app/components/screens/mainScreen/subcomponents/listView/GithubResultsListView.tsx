@@ -73,12 +73,12 @@ const styles = StyleSheet.create({
   },
   listItem: {
     width: '100%',
-    //alignItems: "center",
     marginVertical: 5,
   },
   listContainer: {
     width: '100%',
     paddingHorizontal: 2,
+    marginTop: 20,
     height: '100%',
   },
 });
